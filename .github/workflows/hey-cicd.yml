@@ -26,14 +26,16 @@ jobs:
       - name: Show myself
         run: echo "Mohammed Saad"
 
-  hello2:
+  secrets-demo:
     runs-on: ubuntu-latest
     steps:
-      - name: Print message
-        run: echo "Hello from GitHub Actions"
-      - name: Show date
-        run: date
-      - name: Show OS
-        run: uname -a
-      - name: Show myself
-        run: echo "Mohammed Saad"
+      - name: Check secret
+        env:
+          DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
+        run: |
+          if [ -n "$DEMO_SECRET" ]; then
+            echo "Secret is available."
+          else
+            echo "Secret is not configured."
+            exit 1
+          fi
