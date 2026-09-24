@@ -11,6 +11,9 @@ jobs:
         run: date
       - name: Show operating system
         run: uname -a
+      - name: Show myself
+        run: echo "Mohammed Saad"
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -20,6 +23,8 @@ jobs:
         run: date
       - name: Show operating system
         run: uname -a
+      - name: Show myself
+        run: echo "Mohammed Saad"
 
   secrets-demo:
     runs-on: ubuntu-latest
@@ -34,4 +39,3 @@ jobs:
             echo "Secret is not configured."
             exit 1
           fi
-
